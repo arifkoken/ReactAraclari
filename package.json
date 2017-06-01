@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme": "^2.8.2",
+    "enzyme-to-json": "^1.5.1",
     "eslint-config-defaults": "^9.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-test-renderer": "^15.5.4",
     "stylelint": "^7.10.1",
     "stylelint-config-standard": "^16.0.0"
   },
@@ -16,6 +19,7 @@
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-prettier": "^2.1.1",
     "eslint-plugin-react": "^7.0.1",
+    "istanbul": "^0.4.5",
     "prettier": "^1.3.1",
     "react-scripts": "1.0.7"
   },
@@ -25,9 +29,11 @@
     "lint:eslint": "eslint .",
     "lint:stylelint": "stylelint .",
     "lint": "npm run lint:eslint && npm run lint:stylelint",
-    "format": "prettier --print-width=100 --single-quote --trailing-comma all --write \"{src,__tests__}/**/*.js\"",
+    "format": "prettier --print-width=100 --single-quote --trailing-comma all --write \"{src,tests/**/*.js\"",
     "lint-staged": "lint-staged",
     "test": "react-scripts test --env=jsdom",
+    "coverage": "npm run test -- --coverage --collectCoverageFrom=src/**/*.js --collectCoverageFrom=!src/index.js --collectCoverageFrom=!src/registerServiceWorker.js",
+    "postcoverage": "istanbul check-coverage --statements 90 --functions 90 --branches 90 --lines 90",
     "eject": "react-scripts eject"
   },
   "lint-staged": {
@@ -36,5 +42,10 @@
       "git add"
     ]
   },
-  "pre-commit": "lint-staged"
+  "pre-commit": "lint-staged",
+  "jest": {
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ]
+  }
 }
