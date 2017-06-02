@@ -1,0 +1,29 @@
+language: node_js
+
+node_js:
+  - "7"
+  
+sudo: false
+
+cache: yarn
+
+before_install:
+  - npm install -g yarn --cache-min 999999999
+install:
+  - yarn
+
+script:
+  - yarn run test:ci
+
+after_success:
+  - codecov
+
+before_deploy: 
+  - yarn run build
+  - cp ./build/index.html ./build/200.html
+  
+deploy:
+  provider: surge
+  project: ./build/
+  domain: reactaraclari2.surge.sh  
+  skip_cleanup: true

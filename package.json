@@ -13,6 +13,7 @@
     "stylelint-config-standard": "^16.0.0"
   },
   "devDependencies": {
+    "codecov": "^2.2.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.3.0",
@@ -28,17 +29,19 @@
     "build": "react-scripts build",
     "lint:eslint": "eslint .",
     "lint:stylelint": "stylelint .",
-    "lint": "npm run lint:eslint && npm run lint:stylelint",
+    "lint": "yarn run lint:eslint && yarn run lint:stylelint",
     "format": "prettier --print-width=100 --single-quote --trailing-comma all --write \"{src,tests/**/*.js\"",
     "lint-staged": "lint-staged",
     "test": "react-scripts test --env=jsdom",
-    "coverage": "npm run test -- --coverage --collectCoverageFrom=src/**/*.js --collectCoverageFrom=!src/index.js --collectCoverageFrom=!src/registerServiceWorker.js",
+    "test:ci": "yarn run lint && yarn test && yarn run coverage",
+    "coverage": "yarn run test -- --coverage --collectCoverageFrom=src/**/*.js --collectCoverageFrom=!src/index.js --collectCoverageFrom=!src/registerServiceWorker.js",
     "postcoverage": "istanbul check-coverage --statements 90 --functions 90 --branches 90 --lines 90",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "validate": "npm ls"
   },
   "lint-staged": {
     "*.js": [
-      "npm run format",
+      "yarn run format",
       "git add"
     ]
   },
