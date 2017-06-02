@@ -7,8 +7,11 @@ sudo: false
 
 cache: yarn
 
-before_install:
-  - curl -o- -L http://yarnpkg.com/install.sh | bash -s -- --version 0.21.3
+install:
+  - yarn global add codecov
+before_script:
+  - yarn
+
 
 script:
   - yarn run test:ci
