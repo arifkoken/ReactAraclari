@@ -13,13 +13,13 @@ exports[`renders correctly 1`] = `
       src="logo.svg"
     />
     <h2>
-      Welcome to React
+      React Uygulamasına Hoş Geldiniz.
     </h2>
   </div>
   <p
     className="App-intro"
   >
-    To get started, edit yeni 
+    To get started, edit 
     <code>
       src/App.js
     </code>
