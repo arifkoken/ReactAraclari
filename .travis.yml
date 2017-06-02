@@ -7,5 +7,10 @@ sudo: false
 
 cache: yarn
 
+before_install:
+  - npm install -g yarn --cache-min 999999999
+install:
+  - yarn
+
 script:
   - yarn run test:ci
