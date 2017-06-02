@@ -7,10 +7,5 @@ sudo: false
 
 cache: yarn
 
-
-before_script:
-  - yarn
-
-
 script:
   - yarn run test:ci
