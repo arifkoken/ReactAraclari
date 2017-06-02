@@ -32,6 +32,7 @@
     "format": "prettier --print-width=100 --single-quote --trailing-comma all --write \"{src,tests/**/*.js\"",
     "lint-staged": "lint-staged",
     "test": "react-scripts test --env=jsdom",
+    "test:ci": "npm run lint && npm test && npm run coverage",
     "coverage": "npm run test -- --coverage --collectCoverageFrom=src/**/*.js --collectCoverageFrom=!src/index.js --collectCoverageFrom=!src/registerServiceWorker.js",
     "postcoverage": "istanbul check-coverage --statements 90 --functions 90 --branches 90 --lines 90",
     "eject": "react-scripts eject"
