@@ -13,6 +13,7 @@
     "stylelint-config-standard": "^16.0.0"
   },
   "devDependencies": {
+    "codecov": "^2.2.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.3.0",
@@ -35,7 +36,8 @@
     "test:ci": "yarn run lint && yarn test && yarn run coverage",
     "coverage": "yarn run test -- --coverage --collectCoverageFrom=src/**/*.js --collectCoverageFrom=!src/index.js --collectCoverageFrom=!src/registerServiceWorker.js",
     "postcoverage": "istanbul check-coverage --statements 90 --functions 90 --branches 90 --lines 90",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "validate": "npm ls"
   },
   "lint-staged": {
     "*.js": [
