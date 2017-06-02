@@ -7,8 +7,7 @@ sudo: false
 
 cache: yarn
 
-install:
-  - yarn global add codecov
+
 before_script:
   - yarn
 
