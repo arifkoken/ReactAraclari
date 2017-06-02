@@ -17,3 +17,13 @@ script:
 
 after_success:
   - codecov
+
+before_deploy: 
+  - yarn run build
+  - cp ./build/index.html ./build/200.html
+  
+deploy:
+  provider: surge
+  project: ./build/
+  domain: reactaraclari2.surge.sh  
+  skip_cleanup: true
